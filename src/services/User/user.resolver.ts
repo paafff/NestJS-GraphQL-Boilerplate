@@ -1,8 +1,8 @@
-// 
+//
 
 import { Resolver, Query, Mutation, Args, Float } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
-import { Relations } from '../../utils/relations.decorator';
+// import { Relations } from '../../utils/relations.decorator';
 import {
   AggregateUser,
   CreateManyUserArgs,
@@ -76,13 +76,9 @@ export class UserResolver {
     nullable: true,
     description: 'Deskripsinya ada disini loh',
   })
-  userFindMany(
-    @Args() userFindManyArgs: FindManyUserArgs,
-    @Relations() relations: UserSelect,
-  ) {
+  userFindMany(@Args() userFindManyArgs: FindManyUserArgs) {
     return this.userService.findMany({
       ...replaceNullWithUndefined(userFindManyArgs),
-      select: relations.select,
     });
   }
 
@@ -93,11 +89,9 @@ export class UserResolver {
   userFindFirst(
     @Args()
     findFirstUserArgs: FindFirstUserArgs,
-    @Relations() relations: UserSelect,
   ): Promise<User | void> {
     return this.userService.findFirst({
       ...replaceNullWithUndefined(findFirstUserArgs),
-      select: relations.select,
     });
   }
 

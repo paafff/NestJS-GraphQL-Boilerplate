@@ -1,8 +1,8 @@
-// 
+//
 
 import { Resolver, Query, Mutation, Args, Float } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
-import { Relations } from '../../utils/relations.decorator';
+// import { Relations } from '../../utils/relations.decorator';
 import {
   AggregateProduct,
   CreateManyProductArgs,
@@ -78,11 +78,10 @@ export class ProductResolver {
   })
   productFindMany(
     @Args() productFindManyArgs: FindManyProductArgs,
-    @Relations() relations: ProductSelect,
+    ProductSelect,
   ) {
     return this.productService.findMany({
       ...replaceNullWithUndefined(productFindManyArgs),
-      select: relations.select,
     });
   }
 
@@ -93,11 +92,10 @@ export class ProductResolver {
   productFindFirst(
     @Args()
     findFirstProductArgs: FindFirstProductArgs,
-    @Relations() relations: ProductSelect,
+    ProductSelect,
   ): Promise<Product | void> {
     return this.productService.findFirst({
       ...replaceNullWithUndefined(findFirstProductArgs),
-      select: relations.select,
     });
   }
 

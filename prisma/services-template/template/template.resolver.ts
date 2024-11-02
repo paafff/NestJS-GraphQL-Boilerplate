@@ -77,11 +77,10 @@ export class TemplateResolver {
   })
   templateFindMany(
     @Args() templateFindManyArgs: FindManyTemplateArgs,
-    @Relations() relations: TemplateSelect,
+    TemplateSelect,
   ) {
     return this.templateService.findMany({
       ...replaceNullWithUndefined(templateFindManyArgs),
-      select: relations.select,
     });
   }
 
@@ -92,11 +91,10 @@ export class TemplateResolver {
   templateFindFirst(
     @Args()
     findFirstTemplateArgs: FindFirstTemplateArgs,
-    @Relations() relations: TemplateSelect,
+    TemplateSelect,
   ): Promise<Template | void> {
     return this.templateService.findFirst({
       ...replaceNullWithUndefined(findFirstTemplateArgs),
-      select: relations.select,
     });
   }
 

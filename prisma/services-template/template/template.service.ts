@@ -15,7 +15,6 @@ export class TemplateService {
       return await this.prisma.template.create(templateCreateArgs);
     } catch (err) {
       this.logger.error(err);
-     
     }
   }
 
@@ -24,7 +23,6 @@ export class TemplateService {
       return await this.prisma.template.createMany(templateCreateManyArgs);
     } catch (err) {
       this.logger.error(err);
-     
     }
   }
 
@@ -33,7 +31,6 @@ export class TemplateService {
       return await this.prisma.template.findUnique(templateFindUniqueArgs);
     } catch (err) {
       this.logger.error(err);
-     
     }
   }
 
@@ -42,7 +39,6 @@ export class TemplateService {
       return await this.prisma.template.findMany(templateFindManyArgs);
     } catch (err) {
       this.logger.error(err);
-     
     }
   }
 
@@ -51,7 +47,6 @@ export class TemplateService {
       return await this.prisma.template.findFirst(templateFindFirstArgs);
     } catch (err) {
       this.logger.error(err);
-     
     }
   }
 
@@ -60,7 +55,6 @@ export class TemplateService {
       return await this.prisma.template.update(templateUpdateOneArgs);
     } catch (err) {
       this.logger.error(err);
-     
     }
   }
 
@@ -69,7 +63,6 @@ export class TemplateService {
       return await this.prisma.template.updateMany(templateUpdateManyArgs);
     } catch (err) {
       this.logger.error(err);
-     
     }
   }
 
@@ -79,7 +72,6 @@ export class TemplateService {
       return true;
     } catch (err) {
       this.logger.error(err);
-     
     }
   }
 
@@ -89,7 +81,6 @@ export class TemplateService {
       return true;
     } catch (err) {
       this.logger.error(err);
-     
     }
   }
 
@@ -98,7 +89,6 @@ export class TemplateService {
       return await this.prisma.template.aggregate(templateAggregateArgs);
     } catch (err) {
       this.logger.error(err);
-     
     }
   }
 
@@ -107,7 +97,6 @@ export class TemplateService {
       return await this.prisma.template.count(templateCountArgs);
     } catch (err) {
       this.logger.error(err);
-     
     }
   }
 }
